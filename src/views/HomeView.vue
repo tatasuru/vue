@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- <a :href="book.url">{{book.name}}</a> -->
-    <button
+    <!-- <button
     @click="btnClicked"
     v-show="isAcitve">表示</button>
     <ul>
@@ -11,7 +11,39 @@
       {{vfor}}
       </li>
     </ul>
-    <div class="total">{{totalPrice}}</div>
+    <div class="total">{{totalPrice}}</div> -->
+    <form action="">
+      <input
+      v-model.lazy.trim="test"
+      type="text">
+      <p>{{test}}</p>
+      <!-- <input
+      :value="test"
+      v-on:input="test = $event.target.value"
+      type="text">
+      <p>{{test}}</p> -->
+    </form>
+    <br>
+    <!-- 単数選択 -->
+    <select v-model="selected">
+      <option disabled value="">Please Select</option>
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+    <p>selected:{{selected}}</p>
+    <br>
+    <!-- 複数選択 -->
+    <select
+    v-model="selected02"
+    multiple>
+      <option
+      v-for="option in options"
+      :key="option.value"
+      :value='option.value'
+      >{{option.text}}</option>
+    </select>
+    <p>selected:{{selected02}}</p>
 </div>
 </template>
 
@@ -99,7 +131,15 @@ export default {
       isAcitve: true,
       vFors: ['item01', 'item02', 'item03', 'item04', 'item05', 'item06'],
       price: 1,
-      items: 1
+      items: 1,
+      test: '',
+      selected: '',
+      selected02: [],
+      options: [
+        { text: 'One', value: 'a' },
+        { text: 'Two', value: 'b' },
+        { text: 'Three', value: 'c' }
+      ]
     }
   },
   created () {
