@@ -1,6 +1,6 @@
 <template>
-  <div class="card">
-    <p v-show="getDisabled">{{getTitle}}</p>
+  <div class="array">
+    <p>{{item.name}}</p>
   </div>
 </template>
 
@@ -8,19 +8,12 @@
 export default {
   name: 'HelloWorld',
   props: {
-    title: {
-      type: String
-    },
-    disabled: {
-      type: Boolean,
-      default: false
+    item: {
+      type: Object
     }
   },
   data () {
     return {
-      isShow: false,
-      getTitle: this.title,
-      getDisabled: this.disabled
     }
   }
 }
